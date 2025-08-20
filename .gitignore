@@ -6,3 +6,6 @@
 
 # venv
 .venv/
+
+# setting
+setting.env
