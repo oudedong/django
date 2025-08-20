@@ -24,10 +24,10 @@ load_dotenv(BASE_DIR/'setting.env')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = 'django-insecure-*5b7k&2wf*2pn52iy-g=uz2zprlg3u3_@v%$j-vn@h%-wc@t-0'
-SECRET_KEY = os.environ['SECRET_KEY'] != "False"
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ['DEBUG']
+DEBUG = os.environ['DEBUG'] != "False"
 
 ALLOWED_HOSTS = ['oudedong.pythonanywhere.com', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ['https://oudedong.pythonanywhere.com']
