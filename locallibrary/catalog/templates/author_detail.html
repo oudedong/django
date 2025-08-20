@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<div>
+    <div>
+        <p>Author: {{author.first_name}} {{author.last_name}}</p>
+        <p>Birth: {{author.date_of_birth}}</p>
+        {% if author.date_of_death %}
+        <p>Death: {{author.date_of_death}}</p>
+        {% endif %}
+    </div>
+    <div>
+        <p>Authors books</p>
+        {% if author.book_set.all %}
+        <ul>
+            {% for book in author.book_set.all %}
+            <li>
+                <a href="{{book.get_absolute_url}}">{{book.title}}</a>
+            </li>   
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>this author has no book</p>
+            {% if perms.catalog.delete_author %}
+            <a href="{% url 'delete-author' pk=author.pk %}">Delete Author</a>
+            {% endif %}
+        {% endif %}
+        {% if perms.catalog.change_author %}
+        <a href="{% url 'update-author' pk=author.pk %}">Edit Author</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
