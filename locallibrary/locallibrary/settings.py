@@ -29,8 +29,8 @@ SECRET_KEY = os.environ['SECRET_KEY'] != "False"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ['DEBUG']
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['oudedong.pythonanywhere.com', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://oudedong.pythonanywhere.com']
 
 # Application definition
 
